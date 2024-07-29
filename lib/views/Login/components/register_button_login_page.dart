@@ -10,9 +10,8 @@ class RegisterButtonLoginPage extends StatelessWidget {
                 children: [
                   Expanded(
                       child: ElevatedButton(
-                          style: const ButtonStyle(
-                              backgroundColor:
-                                  WidgetStatePropertyAll(Color(0xFF92A3FD))),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.red),),
                           onPressed: () {},
                           child: Padding(
                             padding: EdgeInsets.only(
