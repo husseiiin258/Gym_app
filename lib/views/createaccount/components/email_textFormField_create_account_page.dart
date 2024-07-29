@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PasswordTextformfieldLoginPage extends StatelessWidget {
-  const PasswordTextformfieldLoginPage({super.key});
+class EmailTextformfieldCreateAccountPage extends StatelessWidget {
+  const EmailTextformfieldCreateAccountPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +15,8 @@ class PasswordTextformfieldLoginPage extends StatelessWidget {
                   child: TextFormField(
                     decoration: const InputDecoration(
                         border: InputBorder.none,
-                        icon: Icon(Icons.lock_outline),
-                        labelText: "Password",
-                        suffixIcon: Icon(Icons.remove_red_eye_outlined)),
+                        icon: Icon(Icons.email_outlined),
+                        labelText: "Email"),
                   ),
                 ),
               );

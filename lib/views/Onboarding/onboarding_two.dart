@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 
-import '../Login/login_page.dart';
+import '../createaccount/create_account_page.dart';
 
 
 
@@ -20,7 +20,7 @@ class OnboardingSecond extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const CreateAccountPage()));
         },
 
         backgroundColor: const Color(0xff92A3FD),

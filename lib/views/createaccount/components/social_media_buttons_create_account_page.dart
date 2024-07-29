@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SocialMediaButtonsLoginPage extends StatelessWidget {
-  const SocialMediaButtonsLoginPage({super.key});
+class SocialMediaButtonsCreateAccountPage extends StatelessWidget {
+  const SocialMediaButtonsCreateAccountPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:gym_app/views/Login/login_page.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import 'package:gym_app/views/Onboarding/onbaording_one.dart';
 
 
@@ -29,7 +25,7 @@ class SplashScreen extends StatelessWidget {
         width: mediaQuery.width,
         height: mediaQuery.height,
         color: const Color(0xff92A3FD),
-        child:  Column(
+        child:  const Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
 

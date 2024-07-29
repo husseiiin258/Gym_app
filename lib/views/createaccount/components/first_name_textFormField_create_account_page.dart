@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FirstNameTextformfieldLoginPage extends StatelessWidget {
-  const FirstNameTextformfieldLoginPage({super.key});
+class FirstNameTextformfieldCreateAccountPage extends StatelessWidget {
+  const FirstNameTextformfieldCreateAccountPage({super.key});
 
   @override
   Widget build(BuildContext context) {
