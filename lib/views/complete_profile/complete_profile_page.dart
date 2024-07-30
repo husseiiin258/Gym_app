@@ -24,7 +24,7 @@ class CompleteProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "assets/images/completeprofile.png",
+                    "assets/images/completeprofile.png",fit: BoxFit.cover,
                   )
                 ],
               ),

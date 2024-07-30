@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/views/Login/login_page.dart';
 import 'package:gym_app/views/complete_profile/complete_profile_page.dart';
 import 'package:gym_app/views/createaccount/components/email_textFormField_create_account_page.dart';
 import 'package:gym_app/views/createaccount/components/first_name_textFormField_create_account_page.dart';
@@ -105,7 +106,7 @@ class CreateAccountPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                     CompleteProfilePage()));
+                                     const LoginPage()));
                       },
                       child: const Text("Login")),
                 ],
