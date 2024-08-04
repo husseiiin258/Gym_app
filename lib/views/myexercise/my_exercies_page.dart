@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/views/allexercies/all_exercies_page.dart';
+import 'package:gym_app/views/categories/all_categories.dart';
 
 class MyExerciesPage extends StatelessWidget {
   const MyExerciesPage({super.key});
@@ -9,7 +10,7 @@ class MyExerciesPage extends StatelessWidget {
     return SafeArea(child: Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const AllExerciesPage()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  AllCategories()));
         },
 
         backgroundColor: const Color(0xff92A3FD),

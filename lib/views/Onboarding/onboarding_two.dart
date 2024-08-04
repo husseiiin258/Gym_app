@@ -1,9 +1,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:gym_app/views/Login/login_page.dart';
+import 'package:gym_app/views/complete_profile/complete_profile_page.dart';
 
-
-import '../createaccount/create_account_page.dart';
 
 
 
@@ -20,7 +20,7 @@ class OnboardingSecond extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const CreateAccountPage()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  LoginPage()));
         },
 
         backgroundColor: const Color(0xff92A3FD),

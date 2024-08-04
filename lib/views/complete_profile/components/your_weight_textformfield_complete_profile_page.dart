@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/views/complete_profile/complete_profile_page.dart';
 
 class YourWeightTextformfieldCompleteProfilePage extends StatelessWidget {
-  const YourWeightTextformfieldCompleteProfilePage({super.key});
+   YourWeightTextformfieldCompleteProfilePage({super.key});
+      static final  TextEditingController weightController = TextEditingController();
+      CompleteProfilePageState completeProfilePageState=CompleteProfilePageState();
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +22,8 @@ class YourWeightTextformfieldCompleteProfilePage extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: TextFormField(
+                                controller: weightController,
+                                key: completeProfilePageState.formKey,
                                 keyboardType: TextInputType.datetime,
                                 decoration: const InputDecoration(
                                   border: InputBorder.none,

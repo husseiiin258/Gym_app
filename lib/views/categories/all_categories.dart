@@ -7,7 +7,7 @@ import 'category_model.dart';
 class AllCategories extends StatefulWidget {
   static const String routeName = 'home';
 
-  AllCategories({super.key});
+  const AllCategories({super.key});
 
   @override
   State<AllCategories> createState() => _AllCategories();
@@ -19,31 +19,31 @@ class _AllCategories extends State<AllCategories> {
       CategoryId: "chest",
       CategoryTitle: "Chest",
       CategoryImage: "assets/images/exercising-2831679_640.webp",
-      CategoryColor: Color(0xff7A78F8),
+      CategoryColor: const Color(0xff7A78F8),
     ),
     CategoryModel(
       CategoryId: "back",
       CategoryTitle: "Back",
       CategoryImage: "assets/images/back.webp",
-      CategoryColor: Color(0xff7A78F8),
+      CategoryColor: const Color(0xff7A78F8),
     ),
     CategoryModel(
       CategoryId: "shoulder",
       CategoryTitle: "Shoulder",
       CategoryImage: "assets/images/shoulder2.webp",
-      CategoryColor: Color(0xff7A78F8),
+      CategoryColor: const Color(0xff7A78F8),
     ),
     CategoryModel(
       CategoryId: "arm",
       CategoryTitle: "Arm",
       CategoryImage: "assets/images/fitness-6995550_640.webp",
-      CategoryColor: Color(0xff7A78F8),
+      CategoryColor: const Color(0xff7A78F8),
     ),
     CategoryModel(
       CategoryId: "leg",
       CategoryTitle: "Leg",
       CategoryImage: "assets/images/leg2.webp",
-      CategoryColor: Color(0xff7A78F8),
+      CategoryColor: const Color(0xff7A78F8),
     ),
 
   ];
@@ -67,7 +67,7 @@ class _AllCategories extends State<AllCategories> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(75),
+          preferredSize: const Size.fromHeight(75),
           child: AppBar(
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
@@ -85,7 +85,7 @@ class _AllCategories extends State<AllCategories> {
                 fontSize: 22,
               ),
             ),
-            backgroundColor: Color(0xff7A78F8),
+            backgroundColor: const Color(0xff7A78F8),
           ),
         ),
         body: selectedCategory == null

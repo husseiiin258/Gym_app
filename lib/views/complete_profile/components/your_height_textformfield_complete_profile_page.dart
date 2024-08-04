@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/views/complete_profile/complete_profile_page.dart';
 
 class YourHeightTextformfieldCompleteProfilePage extends StatelessWidget {
-  const YourHeightTextformfieldCompleteProfilePage({super.key});
+   YourHeightTextformfieldCompleteProfilePage({super.key});
+    static final   TextEditingController heightController = TextEditingController();
+    CompleteProfilePageState completeProfilePageState=CompleteProfilePageState();
 
   @override
   Widget build(BuildContext context) {
       double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
+    
     return Row(
                       children: [
                         Expanded(
@@ -18,6 +22,8 @@ class YourHeightTextformfieldCompleteProfilePage extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: TextFormField(
+                                controller: heightController,
+                                key: completeProfilePageState.formKey,
                                 keyboardType: TextInputType.datetime,
                                 decoration: const InputDecoration(
                                   border: InputBorder.none,
