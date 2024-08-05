@@ -1,28 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// class EmailTextformfieldLoginPage extends StatelessWidget {
-//   EmailTextformfieldLoginPage({super.key});
-//   static final TextEditingController emailController = TextEditingController();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     double width = MediaQuery.sizeOf(context).width;
-//     return Container(
-//       decoration: BoxDecoration(
-//           color: Colors.grey[200], borderRadius: BorderRadius.circular(14)),
-//       child: Padding(
-//         padding: EdgeInsets.only(left: width * .01),
-//         child: TextFormField(
-//           controller: emailController,
-//           decoration: const InputDecoration(
-//               border: InputBorder.none,
-//               icon: Icon(Icons.email_outlined),
-//               labelText: "Email"),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 
 import 'package:flutter/material.dart';

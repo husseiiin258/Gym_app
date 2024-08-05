@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   int currentindex = 0;
   final List<Widget> designsScreens = [
     const MyExerciesPage(), 
-    const ProfilePage(),
+     ProfilePage(),
   ];
 
   @override
