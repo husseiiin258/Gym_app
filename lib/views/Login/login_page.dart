@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:gym_app/services/auth/auth_service.dart';
+import 'package:gym_app/services/auth/google_auth.dart';
 import 'package:gym_app/views/Login/components/email_textformfield_login_page.dart';
 import 'package:gym_app/views/Login/components/login_button_login_page.dart';
 import 'package:gym_app/views/Login/components/password_textformfeild_login_page.dart';
@@ -19,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final AuthService _authService = AuthService();
+  final GoogleAuth _googleAuth = GoogleAuth();
 
   @override
   void dispose() {
@@ -27,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  void _signIn() async {
+  void _signInWithEmailPassword() async {
     if (_formKey.currentState?.validate() ?? false) {
       final user = await _authService.signInWithEmailPassword(
         _emailController.text.trim(),
@@ -41,6 +42,18 @@ class _LoginPageState extends State<LoginPage> {
       } else {
         _showErrorDialog('Invalid email or password.');
       }
+    }
+  }
+
+  void _signInWithGoogle() async {
+    final user = await _googleAuth.signInWithGoogle();
+    if (user != null) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
+    } else {
+      _showErrorDialog('Google sign-in failed.');
     }
   }
 
@@ -79,12 +92,13 @@ class _LoginPageState extends State<LoginPage> {
               key: _formKey,
               child: Column(
                 children: [
-                  EmailTextformfieldLoginPage(emailController: _emailController),
+                  EmailTextformfieldLoginPage(
+                      emailController: _emailController),
                   SizedBox(height: height * 0.02),
                   PasswordTextformfeildLoginPage(
                       passwordController: _passwordController),
                   SizedBox(height: height * 0.2),
-                  LoginButtonLoginPage(onPressed: _signIn),
+                  LoginButtonLoginPage(onPressed: _signInWithEmailPassword),
                   SizedBox(height: height * 0.02),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -122,27 +136,14 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: height * 0.04),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          "assets/images/google.png",
-                          width: width * 0.13,
-                        ),
-                      ),
-                      SizedBox(width: width * 0.05),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          "assets/images/facebook.png",
-                          width: width * 0.13,
-                        ),
-                      ),
-                    ],
-                  ),
+                  IconButton(
+                      onPressed: () {
+                        _signInWithGoogle();
+                      },
+                      icon: Image.asset(
+                        "assets/images/google.png",
+                        width: width * .12,
+                      ))
                 ],
               ),
             ),
@@ -152,3 +153,20 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

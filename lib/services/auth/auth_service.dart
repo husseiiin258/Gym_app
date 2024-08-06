@@ -7,16 +7,16 @@ class AuthService {
 
   // Sign up with email and password
   Future<User?> signUpWithEmailPassword(
-    String email,
-    String password,
-    String name,
-    String weight,
-    String height,
+    String? email,
+    String? password,
+    String? name,
+    String? weight,
+    String? height,
   ) async {
     try {
       final UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+        email: email!,
+        password: password!,
       );
 
       // Store additional user data in Firestore
