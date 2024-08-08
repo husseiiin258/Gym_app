@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gym_app/services/auth/auth_service.dart';
-import 'package:gym_app/services/auth/google_auth.dart';
-import 'package:gym_app/views/Login/components/email_textformfield_login_page.dart';
-import 'package:gym_app/views/Login/components/login_button_login_page.dart';
-import 'package:gym_app/views/Login/components/password_textformfeild_login_page.dart';
-import 'package:gym_app/views/complete_profile/complete_profile_page.dart';
-import 'package:gym_app/views/home/home_page.dart';
+import 'package:gymcal/services/auth/auth_service.dart';
+import 'package:gymcal/services/auth/google_auth.dart';
+import 'package:gymcal/views/Login/components/email_textformfield_login_page.dart';
+import 'package:gymcal/views/Login/components/login_button_login_page.dart';
+import 'package:gymcal/views/Login/components/password_textformfeild_login_page.dart';
+import 'package:gymcal/views/complete_profile/complete_profile_page.dart';
+import 'package:gymcal/views/home/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

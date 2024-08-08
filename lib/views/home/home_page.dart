@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:gym_app/views/myexercise/my_exercies_page.dart';
-import 'package:gym_app/views/profile/profile_page.dart';
+import 'package:gymcal/views/myexercise/my_exercies_page.dart';
+import 'package:gymcal/views/profile/profile_page.dart';
  // Import your actual home screen here
 
 class HomePage extends StatefulWidget {
@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentindex = 0;
   final List<Widget> designsScreens = [
-    const MyExerciesPage(), 
+    const MyExercisesPage(), 
      ProfilePage(),
   ];
 

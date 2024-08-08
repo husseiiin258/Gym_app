@@ -1,15 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gym_app/services/auth/auth_service.dart';
-import 'package:gym_app/services/auth/google_auth.dart';
-import 'package:gym_app/views/Login/login_page.dart';
-import 'package:gym_app/views/complete_profile/components/email_textformfield_complete_profile.dart';
-import 'package:gym_app/views/complete_profile/components/firtsname_textformfiled_complete_profile.dart';
-import 'package:gym_app/views/complete_profile/components/next_buuton_complete_profile_page.dart';
-import 'package:gym_app/views/complete_profile/components/password_textformfield_complete_profile.dart';
-import 'package:gym_app/views/complete_profile/components/your_height_textformfield_complete_profile_page.dart';
-import 'package:gym_app/views/complete_profile/components/your_weight_textformfield_complete_profile_page.dart';
+import 'package:gymcal/services/auth/auth_service.dart';
+import 'package:gymcal/services/auth/google_auth.dart';
+import 'package:gymcal/views/Login/login_page.dart';
+import 'package:gymcal/views/complete_profile/components/email_textformfield_complete_profile.dart';
+import 'package:gymcal/views/complete_profile/components/firtsname_textformfiled_complete_profile.dart';
+import 'package:gymcal/views/complete_profile/components/next_buuton_complete_profile_page.dart';
+import 'package:gymcal/views/complete_profile/components/password_textformfield_complete_profile.dart';
+import 'package:gymcal/views/complete_profile/components/your_height_textformfield_complete_profile_page.dart';
+import 'package:gymcal/views/complete_profile/components/your_weight_textformfield_complete_profile_page.dart';
+import 'package:gymcal/views/googleCompleteProfile/google_complete_profile_page.dart';
 
 class CompleteProfilePage extends StatefulWidget {
   CompleteProfilePage({super.key});
@@ -149,19 +150,11 @@ class CompleteProfilePageState extends State<CompleteProfilePage> {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text('Signed in as ${user.displayName}'),
                             ));
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const GoogleCompleteProfilePage()));
                           }
                         },
                         icon: Image.asset(
                           "assets/images/google.png",
-                          width: width * .13,
-                        ),
-                      ),
-                      SizedBox(width: width * .05),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          "assets/images/facebook.png",
                           width: width * .13,
                         ),
                       ),

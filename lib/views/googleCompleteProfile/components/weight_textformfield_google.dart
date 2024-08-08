@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
-
-class YourHeightTextformfieldCompleteProfilePage extends StatelessWidget {
-  YourHeightTextformfieldCompleteProfilePage({super.key});
-  static final TextEditingController heightController = TextEditingController();
+class WeightTextformfieldGoogle extends StatelessWidget {
+  WeightTextformfieldGoogle({super.key});
+  static final TextEditingController weightController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +18,14 @@ class YourHeightTextformfieldCompleteProfilePage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               keyboardType: TextInputType.number,
-              controller: heightController,
+              controller: weightController,
               decoration: const InputDecoration(
                   border: InputBorder.none,
-                  icon: Icon(Icons.height_outlined),
-                  hintText: "Your Height"),
+                  icon: Icon(Icons.monitor_weight_outlined),
+                  hintText: "Your Weight"),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter your height';
+                  return 'Please enter your weight';
                 }
                 return null;
               },
@@ -44,7 +42,7 @@ class YourHeightTextformfieldCompleteProfilePage extends StatelessWidget {
           ),
           child: const Center(
               child: Text(
-            "CM",
+            "KG",
             style: TextStyle(
                 color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
           )),

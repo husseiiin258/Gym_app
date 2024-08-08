@@ -1,7 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:gym_app/views/Onboarding/onboarding_two.dart';
+import 'package:gymcal/views/Onboarding/onboarding_two.dart';
+
 
 
 

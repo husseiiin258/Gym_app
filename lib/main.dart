@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gym_app/controllers/Exercises/exercises_cubit.dart';
-import 'package:gym_app/views/splash_screen/splash_screen.dart';
+import 'package:gymcal/controllers/Exercises/exercises_cubit.dart';
+import 'package:gymcal/controllers/MyExercises/my_exercises_cubit.dart';
+import 'package:gymcal/views/splash_screen/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       return MultiBlocProvider(
           providers: [
             BlocProvider(create: (context) => ExercisesCubit()),
+             BlocProvider(create: (context) => MyExercisesCubit()),
           ],
           child: const MaterialApp(
             debugShowCheckedModeBanner: false,

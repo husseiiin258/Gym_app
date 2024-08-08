@@ -1,8 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:gym_app/views/Login/login_page.dart';
-import 'package:gym_app/views/complete_profile/complete_profile_page.dart';
+import 'package:gymcal/views/Login/login_page.dart';
 
 
 
