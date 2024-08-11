@@ -28,7 +28,7 @@ class MyExercisesPage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding:  EdgeInsets.only(top: MediaQuery.sizeOf(context).height*.02),
+        padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).height * .02),
         child: BlocBuilder<MyExercisesCubit, MyExercisesState>(
           builder: (context, state) {
             if (state is WaitingStatee) {
@@ -50,129 +50,97 @@ class MyExercisesPage extends StatelessWidget {
                   if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
                     return const Center(child: Text('No exercises found.'));
                   }
-        
+
                   final documents = snapshot.data!.docs;
-        
+
                   return ListView.builder(
                     itemCount: documents.length,
                     itemBuilder: (context, index) {
                       var doc = documents[index];
                       var myexercises = doc.data() as Map<String, dynamic>;
                       var documentId = doc.id;
-        
+
                       return Padding(
                         padding: const EdgeInsets.symmetric(
                           vertical: 8.0,
                           horizontal: 16.0,
                         ),
-                        child: Container(
-                          decoration: BoxDecoration(
+                        child: ListTile(
+                          leading: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
-                            color: Colors.grey[200],
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
-                                spreadRadius: 2,
-                                blurRadius: 4,
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
+                            child: Image.network(
+                              myexercises['url'] ?? '',
+                              fit: BoxFit.cover,
+                              width: MediaQuery.of(context).size.width * 0.089,
+                            ),
                           ),
-                          child: Row(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.network(
-                                  myexercises['url'] ?? '',
-                                  fit: BoxFit.cover,
-                                  width: MediaQuery.of(context).size.width * 0.3,
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 8),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        myexercises['name'] ?? 'No Name',
-                                        style: const TextStyle(
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.w600,
-                                          color: Color(0xff92A3FD),
-                                        ),
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            "Sets: ${myexercises['sets'].toString()}",
-                                            style: const TextStyle(
-                                              color: Color(0xff92A3FD),
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width:
-                                                MediaQuery.sizeOf(context).width *
-                                                    0.05,
-                                          ),
-                                          Text(
-                                            "Weight: ${myexercises['weight'].toString()}",
-                                            style: const TextStyle(
-                                              color: Color(0xff92A3FD),
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width:
-                                                MediaQuery.sizeOf(context).width *
-                                                    0.05,
-                                          ),
-                                          Text(
-                                            "Reps: ${myexercises['reps'].toString()}",
-                                            style: const TextStyle(
-                                              color: Color(0xff92A3FD),
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.03,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
-                                        children: [
-                                          IconButton(
-                                            icon: const Icon(
-                                              Icons.edit,
-                                              color: Color(0xff92A3FD),
-                                            ),
-                                            onPressed: () {
-                                              _showEditDialog(
-                                                  context, documentId);
-                                            },
-                                          ),
-                                          IconButton(
-                                            icon: const Icon(
-                                              Icons.delete,
-                                              color: Color(0xff92A3FD),
-                                            ),
-                                            onPressed: () {
-                                              _showDeleteDialog(
-                                                  context, documentId);
-                                            },
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                          title: Text(
+                            myexercises['name'] ?? 'No Name',
+                            style: const TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff92A3FD),
+                            ),
+                          ),
+                          subtitle: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Sets: ${myexercises['sets'].toString()}",
+                                  style: const TextStyle(
+                                    color: Color(0xff92A3FD),
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
+                                SizedBox(
+                                  width: MediaQuery.sizeOf(context).width * 0.05,
+                                ),
+                                Text(
+                                  "Weight: ${myexercises['weight'].toString()}",
+                                  style: const TextStyle(
+                                    color: Color(0xff92A3FD),
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: MediaQuery.sizeOf(context).width * 0.05,
+                                ),
+                                Text(
+                                  "Reps: ${myexercises['reps'].toString()}",
+                                  style: const TextStyle(
+                                    color: Color(0xff92A3FD),
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.delete,
+                                  color: Color(0xff92A3FD),
+                                ),
+                                onPressed: () {
+                                  _showDeleteDialog(context, documentId);
+                                },
                               ),
                             ],
                           ),
+                          contentPadding: const EdgeInsets.all(8.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          tileColor: Colors.white,
+                          selectedTileColor: Colors.grey[100],
+                          selected: false,
+                          onTap: () {
+                            _showEditDialog(context, documentId);
+                          },
                         ),
                       );
                     },
@@ -213,31 +181,24 @@ class MyExercisesPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Edit Exercise'),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        title: const Text(
+          'Edit Exercise',
+          style: TextStyle(
+            color: Color(0xff92A3FD),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextField(
-              controller: setsController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                hintText: 'Enter new sets',
-              ),
-            ),
-            TextField(
-              controller: weightController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                hintText: 'Enter new weight',
-              ),
-            ),
-            TextField(
-              controller: repsController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                hintText: 'Enter new reps',
-              ),
-            ),
+            _buildTextField('Sets', setsController),
+            const SizedBox(height: 10),
+            _buildTextField('Weight', weightController),
+            const SizedBox(height: 10),
+            _buildTextField('Reps', repsController),
           ],
         ),
         actions: [
@@ -245,7 +206,10 @@ class MyExercisesPage extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: const Text('Cancel'),
+            child: const Text(
+              'Cancel',
+              style: TextStyle(color: Colors.red),
+            ),
           ),
           TextButton(
             onPressed: () {
@@ -260,7 +224,10 @@ class MyExercisesPage extends StatelessWidget {
               }
               Navigator.of(context).pop();
             },
-            child: const Text('Save'),
+            child: const Text(
+              'Save',
+              style: TextStyle(color: Color(0xff92A3FD)),
+            ),
           ),
         ],
       ),
@@ -271,57 +238,86 @@ class MyExercisesPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Delete Exercise'),
-        content: const Text('Are you sure you want to delete this exercise?'),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        title: const Text(
+          'Delete Exercise',
+          style: TextStyle(
+            color: Color(0xff92A3FD),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        content: const Text(
+          'Are you sure you want to delete this exercise?',
+          style: TextStyle(color: Colors.black54),
+        ),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: const Text('Cancel'),
+            child: const Text(
+              'Cancel',
+              style: TextStyle(color: Colors.red),
+            ),
           ),
           TextButton(
             onPressed: () {
               _deleteExercise(documentId);
               Navigator.of(context).pop();
             },
-            child: const Text('Delete'),
+            child: const Text(
+              'Delete',
+              style: TextStyle(color: Color(0xff92A3FD)),
+            ),
           ),
         ],
       ),
     );
   }
 
-  Future<void> _updateExercise(String documentId, String newSets,
-      String newWeight, String newReps) async {
-    try {
-      await FirebaseFirestore.instance
-          .collection('users')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .collection('myexercises')
-          .doc(documentId)
-          .update({
-        'sets': newSets,
-        'weight': newWeight,
-        'reps': newReps,
-      });
-    } catch (e) {
-      print('Error updating exercise: $e');
-      // Consider adding user feedback here
-    }
+  Widget _buildTextField(String labelText, TextEditingController controller) {
+    return TextField(
+      controller: controller,
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        labelText: labelText,
+        labelStyle: const TextStyle(color: Color(0xff92A3FD)),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Color(0xff92A3FD)),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _updateExercise(
+    String documentId,
+    String sets,
+    String weight,
+    String reps,
+  ) async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection('myexercises')
+        .doc(documentId)
+        .update({
+      'sets': int.parse(sets),
+      'weight': double.parse(weight),
+      'reps': int.parse(reps),
+    });
   }
 
   Future<void> _deleteExercise(String documentId) async {
-    try {
-      await FirebaseFirestore.instance
-          .collection('users')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .collection('myexercises')
-          .doc(documentId)
-          .delete();
-    } catch (e) {
-      print('Error deleting exercise: $e');
-      // Consider adding user feedback here
-    }
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection('myexercises')
+        .doc(documentId)
+        .delete();
   }
 }
