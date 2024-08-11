@@ -1,16 +1,25 @@
-# gym_app
+# GymCal
 
-A new Flutter project.
+GymCal is a mobile application developed with Flutter that helps users manage their workout exercises. The app integrates with Firebase for user authentication and data storage, and it features a responsive design for tracking exercises, viewing exercise details, and managing exercise data.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **User Authentication**: Sign up and log in with email and password or Google.
+- **Exercise Management**: Add, edit, and delete exercises.
+- **Firestore Integration**: Store and retrieve user-specific exercise data.
+- **Responsive Design**: Adapted for various screen sizes and devices.
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Prerequisites
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter SDK
+- Firebase Account
+- Node.js (for backend services, if applicable)
+
+### Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/gymcal.git
+   cd gymcal
