@@ -24,7 +24,7 @@ class _AllCategoriesState extends State<AllCategories> {
     ExercisesCubit.get(context).getExercises();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff92A3FD),
+        backgroundColor: const Color(0xff92A3FD),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),

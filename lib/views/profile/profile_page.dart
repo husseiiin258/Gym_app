@@ -46,7 +46,7 @@ class _ProfilePageState extends State<ProfilePage> {
     await FirebaseAuth.instance.signOut();
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
+      MaterialPageRoute(builder: (context) => const LoginPage()),
       (Route<dynamic> route) => false,
     );
   }
@@ -89,7 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
         Expanded(
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(const Color(0xff92A3FD)),
+              backgroundColor: WidgetStateProperty.all(const Color(0xff92A3FD)),
             ),
             onPressed: logout,
             child: Padding(

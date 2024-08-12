@@ -15,9 +15,6 @@ class GoogleCompleteProfilePage extends StatefulWidget {
 
 class _GoogleCompleteProfilePageState extends State<GoogleCompleteProfilePage> {
   final _formKey = GlobalKey<FormState>();
-  final _weightController = TextEditingController();
-  final _heightController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
@@ -78,7 +75,7 @@ class _GoogleCompleteProfilePageState extends State<GoogleCompleteProfilePage> {
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(const Color(0xff92A3FD)),
+                            WidgetStateProperty.all(const Color(0xff92A3FD)),
                       ),
                       onPressed: _saveProfile,
                       child: Padding(
@@ -124,7 +121,7 @@ class _GoogleCompleteProfilePageState extends State<GoogleCompleteProfilePage> {
               context,
               MaterialPageRoute(
                   builder: (context) =>
-                      LoginPage())); // Go back to previous page
+                      const LoginPage())); // Go back to previous page
         }
       } catch (e) {
         print('Error updating profile: $e');

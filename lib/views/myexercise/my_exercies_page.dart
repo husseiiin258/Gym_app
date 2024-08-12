@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gymcal/controllers/MyExercises/my_exercises_cubit.dart';
-import 'package:gymcal/views/categories/all_categories.dart';
+import 'package:gymcal/views/exercises/all_exercises.dart';
 import 'package:gymcal/views/myexercise/components/shimmer.dart';
 
 class MyExercisesPage extends StatelessWidget {
